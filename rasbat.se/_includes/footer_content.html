@@ -1,0 +1,11 @@
+{% assign feed_path = "/feed.xml" %}
+{% if site.feed and site.feed.path %}
+  {% assign feed_path = site.feed.path %}
+{% endif %}
+&copy; {{ site.author }}
+<br>
+<a href="https://github.com/{{ site.github_username }}" target="_blank">GitHub</a> -
+<a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank">LinkedIn</a>
+<br>
+<a href="{{ feed_path | absolute_url }}">RSS</a> -
+<a href="mailto:{{ site.mail }}">Mail</a>
