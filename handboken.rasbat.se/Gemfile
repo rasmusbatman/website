@@ -1,0 +1,17 @@
+source 'https://rubygems.org/'
+
+gem 'webrick' # needs to be specified on ruby >= 3.0
+gem 'nanoc'
+gem 'kramdown'
+gem 'sass'
+
+# NOTICE: i've not tested this on *nix, however,
+# nanoc-live seems to use a system call which
+# does not exist on windows.
+if RUBY_PLATFORM =~ /win32/
+    gem 'adsf' # run: bundle exec nanoc view
+else
+    group 'nanoc' do
+        gem 'nanoc-live' # run: bundle exec nanoc live
+    end
+end

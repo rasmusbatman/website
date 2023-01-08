@@ -1,0 +1,18 @@
+# https://nanoc.app/doc/reference/config/
+
+text_extensions: [ 'erb', 'html', 'css', 'js', 'txt', 'xml', 'svg', 'md', 'scss' ]
+
+prune:
+  auto_prune: true
+  exclude: [ '.git' ]
+
+data_sources:
+  - type: filesystem
+    encoding: utf-8
+
+site:
+  title: 'Handboken'
+  description: 'Handboken är en webbsida med syfte att lära grundläggande koncept inom tekniska områden.'
+  author: 'Rasmus Båtman'
+  license: 'https://creativecommons.org/licenses/by-sa/4.0/'
+  source: 'https://github.com/rasmusbatman/website/handboken.rasbat.se'
