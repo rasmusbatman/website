@@ -3,16 +3,12 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="/assets/default.css" />
-        <% if @item.key?(:title) %>
-        <title><%= @config.fetch(:site)[:title] %> - <%= @item.fetch(:title) %></title>
-        <% else %>
-        <title><%= @config.fetch(:site)[:title] %></title>
-        <% end %>
+        <link rel="stylesheet" href="/assets/main.css" />
+        <title><%= @item.fetch(:book) %> - <%= @item.fetch(:chapter)[:string] %> (<%= @config.fetch(:site)[:title] %>)</title>
         <meta name="description" content="<%= @item.fetch(:description, @config.fetch(:site)[:description]) %>" />
         <meta name="author" content="<%= @item.fetch(:author, @config.fetch(:site)[:author]) %>" />
         <% if @item.key?(:keywords) %><meta name="keywords" content="<%= @item.fetch(:keywords) %>" /><% end %>
-        <meta name="license" content="<%= @config.fetch(:site)[:license] %>" />
+        <meta name="license" content="https://creativecommons.org/licenses/by-sa/4.0/" />
         <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>" />
         <meta name="color-scheme" content="light dark" />
         <meta name="robots" content="index, follow" />
@@ -26,14 +22,14 @@
             <nav></nav>
         </header>
         <aside>
-
+        
         </aside>
         <main>
             <%= yield %>
         </main>
         <footer>
             <div>
-                <span>Senast ändrad:</span> <time id="timestamp"><%= File.mtime(@item.raw_filename) %></time>
+                <span>Senast ändrad:</span> <time id="timestamp"><%= File.stat(@item.raw_filename).mtime %></time>
             </div>
         </footer>
     </body>
