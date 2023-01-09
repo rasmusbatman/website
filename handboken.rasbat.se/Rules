@@ -19,7 +19,7 @@ compile '/**/*.erb' do
 end
 
 compile '/**/*.md' do
-    layout '/standard.erb'
+    layout '/book.erb'
     filter :kramdown
     write ext: '.html'
 end
